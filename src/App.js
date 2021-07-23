@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from './components/Navbar';
+import { BrowserRouter as Router } from 'react-router-dom';
+import styled from 'styled-components';
+import MainContent from './components/MainContent';
+
+const AppWrapper = styled.div`
+  display: flex;
+  width: var(--dashboardWidth);
+  height: var(--dashboardHeight);
+  background-color: rgb(240, 240, 240);
+  margin: calc((100vh - var(--dashboardHeight)) / 2)
+    auto;
+  border-radius: var(--dashboardRadius);
+`;
+
+const paths = ['About', 'Products', 'Contact Us'];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppWrapper className="App">
+      <Router>
+        {/* Sidebar */}
+        <Navbar paths={paths} className="navbar" />
+        {/* Main content */}
+        <MainContent />
+      </Router>
+    </AppWrapper>
   );
 }
 
