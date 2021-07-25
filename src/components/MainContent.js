@@ -4,6 +4,7 @@ import Home from './Home';
 import About from './About';
 import Products from './Products';
 import ContactUs from './ContactUs';
+import ProductsList from './ProductsList';
 
 const MainContent = () => {
   return (
@@ -14,9 +15,13 @@ const MainContent = () => {
       <Route path="/about">
         <About />
       </Route>
-      <Route path="/products">
+      <Route exact path="/products">
         <Products />
       </Route>
+      <Route
+        path="/products/:categoryId"
+        children={<ProductsList />}
+      />
       <Route path="/contact-us">
         <ContactUs />
       </Route>

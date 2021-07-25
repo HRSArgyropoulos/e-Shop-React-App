@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import CategoryItem from './CategoryItem';
+import { Redirect } from 'react-router';
 
 const ProductsWrapper = styled.div`
   margin: 20px auto;
@@ -34,6 +35,8 @@ const Category = styled.li`
 
 const Products = () => {
   const [categories, setCategories] = useState([]);
+  const [clickedCategory, setClickedCategory] =
+    useState(null);
 
   useEffect(() => {
     // abort controller if component is unmounted (not to update state)
@@ -53,13 +56,27 @@ const Products = () => {
     return () => abortContr.abort();
   }, []);
 
+  // on click set this category as active
+  const handleOnClick = (category) => {
+    setClickedCategory(category);
+    console.log(category);
+  };
+
   return (
     <ProductsWrapper>
       <CategoriesWrapper>
         {categories &&
-          categories.map((category) => (
-            <Category key={category.id}>
+          categories.map((category, index) => (
+            <Category
+              key={category.id}
+              onClick={() => handleOnClick(index)}>
               <CategoryItem {...category} />
+              {clickedCategory === index ? (
+                <Redirect
+                  to={`/products/${category.id}`}
+                />
+              ) : null}
+              ;
             </Category>
           ))}
       </CategoriesWrapper>
