@@ -9,7 +9,10 @@ const Welcome = () => {
   return (
     <WelcomeWrapper>
       <h1>Welcome to DogTown 🐕</h1>
-      <span>*Woof Woof*</span>
+      <span>
+        Navigate through various options for fashion
+        and food for the little ones.
+      </span>
     </WelcomeWrapper>
   );
 };

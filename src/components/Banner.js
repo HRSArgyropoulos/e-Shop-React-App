@@ -7,25 +7,28 @@ const Banner = (props) => {
   const BannerWrapper = styled.div`
     border-radius: var(--dashboardRadius);
     width: ${size === 'sm'
-      ? '300px'
+      ? '350px'
       : size === 'md'
-      ? '400px'
-      : '550px'};
+      ? '450px'
+      : '600px'};
     display: flex;
     align-items: center;
     background-color: ${color};
     margin: 1rem 0;
     cursor: pointer;
+    margin-right: 1rem;
   `;
 
   const Image = styled.img`
-    width: 65%;
+    max-width: 60%;
+    height: 100%;
+    object-fit: cover;
     border-radius: var(--dashboardRadius) 0 0
       var(--dashboardRadius);
   `;
 
   const Text = styled.p`
-    padding: 20px;
+    padding: 15px;
     color: ${textColor};
   `;
 
