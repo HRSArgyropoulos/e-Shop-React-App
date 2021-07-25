@@ -2,6 +2,7 @@
   --dashboardWidth: 90vw;
   --dashboardHeight: 90vh;
   --dashboardRadius: 35px;
+  --lightGray: rgb(230, 230, 230);
 }
 
 * {

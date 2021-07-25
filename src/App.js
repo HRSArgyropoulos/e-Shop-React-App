@@ -19,9 +19,7 @@ function App() {
   return (
     <AppWrapper className="App">
       <Router>
-        {/* Sidebar */}
         <Navbar paths={paths} className="navbar" />
-        {/* Main content */}
         <MainContent />
       </Router>
     </AppWrapper>

@@ -8,7 +8,7 @@ import ContactUs from './ContactUs';
 const MainContent = () => {
   return (
     <Switch>
-      <Route path="/home">
+      <Route exact path="/">
         <Home />
       </Route>
       <Route path="/about">
